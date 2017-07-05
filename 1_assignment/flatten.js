@@ -1,12 +1,7 @@
 
-// data=	{	temp: "abc",
-// 			foo:
-// 				{
-// 					bar:false
-// 				}
-// 		}
-
+//Sample Complex Nested JSON Object.
 data = { "flatJSON": false, "i": { "am": { "not": { "so": { "flat": true, "unflat": false } }, "a": "tree" } }, "dates": [ { "day": 1 }, { "day": 8947 } ] }		
+
 
 function flatten(unflatObject)
 {	
@@ -17,12 +12,10 @@ function flatten(unflatObject)
 		{
 			if(Array.isArray(object))
 			{	
-
-				//console.log("Array Section");
+				//Check if Array.
 				for(var i=0;i<object.length;i++)
 				{
-					next_object(object[i] , prefix_string + "." + i);
-					//flattened_json[prefix_string+"."+object+"["+i+"]"]=object[i];	
+					next_object(object[i] , prefix_string + "." + i);	
 				}
 				
 				if (object.length == 0) 
@@ -31,19 +24,10 @@ function flatten(unflatObject)
 				}
 			}
 			else
-			{
-				//console.log("Object Section");
+			{	
+				//Check if Object.
 				for (var obj in object)
 				{		
-
-					// if(prefix_string=="")
-					// {
-					// 	prefix_string=""+obj;
-					// }
-					// else
-					// {
-					// 	prefix_string=prefix_string +"."+obj;
-					// }
 					next_object(object[obj] , prefix_string ? prefix_string+"."+obj : String(obj));
 				}
 			}	
@@ -54,14 +38,9 @@ function flatten(unflatObject)
 		 	
 		}
 	}
-
 	next_object(unflatObject , "");
-	console.log(flattened_json);
-
+	return flattened_json;
 }
 
-a=[1,2,3];
 flatten(data);
 
-//console.log(flatten2(data));
-//console.log(Object.keys(data));

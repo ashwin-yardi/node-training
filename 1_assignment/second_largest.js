@@ -1,18 +1,21 @@
 
-array= [ -1 , -4 , 2 , -10]
+
+// Sample Array.
+var array= [ -1 , -4 , 2 , -10];
 
 
+//Function to Calculate Second Largest Number from the array.
 function secondLargest(array) {
   // Write your code here
   var i;
   var biggest=null;
   var secondBiggest=null;
-  for (i=0;i<array.length;i++)
-    {
-        if (i==0)
+  for (i=0; i < array.length; i++)
+  {
+        if (i == 0)
         {
-            biggest=array[0];
-            secondBiggest=biggest;
+            biggest = array[0];
+            secondBiggest = biggest;
         }
         if ( array[i] > biggest )
         {
@@ -24,8 +27,6 @@ function secondLargest(array) {
         {
             secondBiggest = array[i];    
         }
-    }
+  }
     return secondBiggest;
 }
-
-console.log(secondLargest(array));
