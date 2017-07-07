@@ -9,21 +9,18 @@ function unflatten (flatObject) {
   return unflatObject;
 }
 
-function formObject (unflatObject, splittedString, value) {
+function formObject (referencedunflatObject, splittedString, value) {
   var keyLength = splittedString.length - 1;
   for (var i = 0; i < keyLength; ++i) {  
     var key = splittedString[i];  
-    if (!(key in unflatObject)) {
+    if (!(key in referencedunflatObject)) {
       if (splittedString[i + 1].match(/\d+/g)) {
-        unflatObject[key] = [];
+        referencedunflatObject[key] = [];
       } else {
-        unflatObject[key] = {};
+        referencedunflatObject[key] = {};
       }
     }
-    unflatObject = unflatObject[key];
+    referencedunflatObject = referencedunflatObject[key];
   } 
-  unflatObject[splittedString[keyLength]] = value;
+  referencedunflatObject[splittedString[keyLength]] = value;
 }
-
-
-

@@ -20,14 +20,11 @@ function calculateFrequencySimplerLogic (string) {
   for (var i = 0; i < string.length; i++) {
     if (string[i].match(/[a-z]/i)) {
       var key = string[i];
-      flag = 0;
-    } else {
-       flag = 1;
-    }
-    if (!(key in jsonOutput)) {
-      jsonOutput[key] = 1;
-    } else if (flag != 1) {
-      jsonOutput[key]++;
+      if (!jsonOutput.hasOwnProperty(string[i])) {
+        jsonOutput[key] = 1;
+      } else {
+        jsonOutput[key]++;
+      }
     }
   }
   return jsonOutput;
