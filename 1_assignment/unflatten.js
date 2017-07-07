@@ -11,9 +11,9 @@ function unflatten (flatObject) {
 
 function formObject (unflatObject, splittedString, value) {
   var keyLength = splittedString.length - 1;
-  for (var i = 0 ; i < keyLength ; ++i) {  
+  for (var i = 0; i < keyLength; ++i) {  
     var key = splittedString[i];  
-    if (!(key in unflatObject )) {
+    if (!(key in unflatObject)) {
       if (splittedString[i + 1].match(/\d+/g)) {
         unflatObject[key] = [];
       } else {
