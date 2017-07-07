@@ -4,10 +4,10 @@ function flatten(unflatObject) {
     if (typeof object == 'object') {
       if (Array.isArray(object)) {  
         for (var i = 0; i < object.length; i++) {
-            nextObject(object[i], prefixString + "." + i);    
+          nextObject(object[i], prefixString + "." + i);    
         }
         if (object.length == 0) {
-            flattenedJson[prefixString] = [];
+          flattenedJson[prefixString] = [];
         }
       }  else {   
         for (var obj in object) {        
