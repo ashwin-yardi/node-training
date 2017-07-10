@@ -75,8 +75,8 @@ paths:
       produces:
         - application/json
       responses:
-        '405':
-          description: Invalid input
+        '404':
+          description: Not found.
   /people:
     get:
       tags:
@@ -90,8 +90,15 @@ paths:
           description: successful operation
         '400':
           description: Invalid status value
-  '/people/:id':
+        '404':
+          description: Not found.
+  '/people/{id}':
     get:
+      parameters:
+        - in: path
+          name: id
+          required: true
+          type: integer
       tags:
         - People
       summary: Get a specific people resource.
@@ -103,6 +110,8 @@ paths:
           description: successful operation
         '400':
           description: Invalid status value
+        '404':
+          description: Not found.
   /people/schema:
     get:
       tags:
@@ -116,6 +125,8 @@ paths:
           description: successful operation
         '400':
           description: Invalid status value
+        '404':
+          description: Not found.
   /films:
     get:
       tags:
@@ -129,8 +140,15 @@ paths:
           description: successful operation
         '400':
           description: Invalid status value
-  '/films/:id':
+        '404':
+          description: Not found.
+  '/films/{id}':
     get:
+      parameters:
+        - in: path
+          name: id
+          required: true
+          type: integer
       tags:
         - Films
       summary: Get a specific people resource.
@@ -142,6 +160,8 @@ paths:
           description: successful operation
         '400':
           description: Invalid status value
+        '404':
+          description: Not found.
   /films/schema:
     get:
       tags:
@@ -155,6 +175,8 @@ paths:
           description: successful operation
         '400':
           description: Invalid status value
+        '404':
+          description: Not found.
   /starships:
     get:
       tags:
@@ -168,8 +190,15 @@ paths:
           description: successful operation
         '400':
           description: Invalid status value
-  '/startships/:id':
+        '404':
+          description: Not found.
+  '/startships/{id}':
     get:
+      parameters:
+        - in: path
+          name: id
+          required: true
+          type: integer
       tags:
         - Starships
       summary: Get a specific people resource.
@@ -181,6 +210,8 @@ paths:
           description: successful operation
         '400':
           description: Invalid status value
+        '404':
+          description: Not found.
   /starships/schema:
     get:
       tags:
@@ -194,6 +225,8 @@ paths:
           description: successful operation
         '400':
           description: Invalid status value
+        '404':
+          description: Not found.
   /vehicles:
     get:
       tags:
@@ -207,8 +240,15 @@ paths:
           description: successful operation
         '400':
           description: Invalid status value
-  '/vehicles/:id':
+        '404':
+          description: Not found.
+  '/vehicles/{id}':
     get:
+      parameters:
+        - in: path
+          name: id
+          required: true
+          type: integer
       tags:
         - Vehicles
       summary: Get a specific people resource.
@@ -220,6 +260,8 @@ paths:
           description: successful operation
         '400':
           description: Invalid status value
+        '404':
+          description: Not found.
   /vehicles/schema:
     get:
       tags:
@@ -233,6 +275,8 @@ paths:
           description: successful operation
         '400':
           description: Invalid status value
+        '404':
+          description: Not found.
   /planets:
     get:
       tags:
@@ -246,8 +290,15 @@ paths:
           description: successful operation
         '400':
           description: Invalid status value
-  '/planets/:id':
+        '404':
+          description: Not found.
+  '/planets/{id}':
     get:
+      parameters:
+        - in: path
+          name: id
+          required: true
+          type: integer
       tags:
         - Planets
       summary: Get a specific people resource.
@@ -259,6 +310,8 @@ paths:
           description: successful operation
         '400':
           description: Invalid status value
+        '404':
+          description: Not found.
   /planets/schema:
     get:
       tags:
@@ -272,6 +325,8 @@ paths:
           description: successful operation
         '400':
           description: Invalid status value
+        '404':
+          description: Not found.
   /species:
     get:
       tags:
@@ -285,8 +340,15 @@ paths:
           description: successful operation
         '400':
           description: Invalid status value
-  '/species/:id':
+        '404':
+          description: Not found.
+  '/species/{id}':
     get:
+      parameters:
+        - in: path
+          name: id
+          required: true
+          type: integer
       tags:
         - Species
       summary: Get a specific people resource.
@@ -298,6 +360,8 @@ paths:
           description: successful operation
         '400':
           description: Invalid status value
+        '404':
+          description: Not found.
   /species/schema:
     get:
       tags:
@@ -311,6 +375,8 @@ paths:
           description: successful operation
         '400':
           description: Invalid status value
+        '404':
+          description: Not found.
 externalDocs:
   description: Find out more about SWAPI
   url: 'http://swapi.co'
