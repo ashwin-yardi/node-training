@@ -1,1 +1,6 @@
 5th File!!
+The following code uses SerialPort module to listen to data from a bluetooth connection.
+
+I am expecting to see a stream of data in Hexadecimal format printed in console. But the console just shows some weird simbols. I want to know how can I decode and display the data in consoleThe following code uses SerialPort module to listen to data from a bluetooth connection.
+
+I am expecting to see a stream of data in Hexadecimal format printed in console. But the console just shows some weird simbols. I want to know how can I decode and display the data in consoleThe following code uses SerialPort module to listen to data from a bluetooth connection.
