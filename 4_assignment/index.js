@@ -4,11 +4,15 @@ var fileCount = 0;
 
 var readFile = function (fileName) {
 	fs.readFile("./files_to_be_read/" + fileName, function (err, data) {
-		fileCount++;
-		if (fileCount <= filesArray.length) {
+		if (err) {
+			throw err;
+		} else { 
+			fileCount++;
 			printPattern(data);
-			readFile(filesArray[fileCount]);
-		}
+			if (fileCount <= filesArray.length-1) {
+				readFile(filesArray[fileCount]);
+			}
+		}	
 	});	
 }
 

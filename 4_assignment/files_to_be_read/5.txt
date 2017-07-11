@@ -1,2 +1,1 @@
 5th File!!
-The following code uses SerialPort module to listen to data from a bluetooth connection.
