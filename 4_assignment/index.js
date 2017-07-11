@@ -6,7 +6,7 @@ var readFile = function (fileName) {
 	fs.readFile("./files_to_be_read/" + fileName, function (err, data) {
 		fileCount++;
 		if (fileCount <= filesArray.length) {
-			console.log("Reading File: " + fileName);
+			printPattern(data);
 			readFile(filesArray[fileCount]);
 		}
 	});	
