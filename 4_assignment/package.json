@@ -1,0 +1,21 @@
+{
+  "name": "4_assignment",
+  "version": "1.0.0",
+  "description": "NodeJS Callback function",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ashwin-yardi/node-training/tree/assignment_4"
+  },
+  "keywords": [
+    "NodeJS",
+    "Callback",
+    "Event",
+    "Loop"
+  ],
+  "author": "Ashwin Yardi",
+  "license": "ISC"
+}
