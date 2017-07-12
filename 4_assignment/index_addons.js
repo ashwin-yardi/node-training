@@ -5,7 +5,6 @@ var writeLock = 0;
 
 var readFile = function (fileName) {
   fs.readFile("./files_to_be_read/" + fileName, function (err, data) {
-    console.log(fileCount);
     fileCount++;
     printPattern(data);
     if (err) {
@@ -22,7 +21,7 @@ var readFile = function (fileName) {
         var reversedData = data.toString().split('').reverse().join('');
         fs.appendFile("./files_to_be_read/" + filesArray[2], reversedData, function (err) {
           readFile(filesArray[fileCount]);
-        }) 
+        })
       } else if (fileCount > 2 && fileCount < 5) {
         readFile(filesArray[fileCount]);
       }
