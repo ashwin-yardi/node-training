@@ -1,7 +1,6 @@
 var fs = require('fs');
 var filesArray = ["1.txt", "2.txt", "3.txt", "4.txt", "5.txt"];
 var fileCount = 0;
-var writeLock = 0;
 
 var readFile = function (fileName) {
   fs.readFile("./files_to_be_read/" + fileName, function (err, data) {
