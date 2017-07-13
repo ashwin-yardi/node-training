@@ -9,7 +9,7 @@ var readFile = function (fileName) {
 		} else { 
 			fileCount++;
 			printPattern(data);
-			if (fileCount <= filesArray.length-1) {
+			if (fileCount < filesArray.length) {
 				readFile(filesArray[fileCount]);
 			}
 		}	

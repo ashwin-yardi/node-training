@@ -4,24 +4,29 @@ var fileCount = 0;
 
 var readFile = function (fileName) {
   fs.readFile("./files_to_be_read/" + fileName, function (err, data) {
-    fileCount++;
-    printPattern(data);
     if (err) {
       throw err;
     } else { 
+      fileCount++;
+      printPattern(data);
       if (fileCount == 1) {
-        fs.appendFile("./files_to_be_read/" + filesArray[1], data.toString(), function (err) {
-          readFile(filesArray[fileCount]);
+        fs.appendFile("./files_to_be_read/" + filesArray[fileCount], data.toString(), function (err) {
           if (err) {
             throw err;
+          } else {
+            readFile(filesArray[fileCount]);
           }
         });
       } else if (fileCount == 2) {
         var reversedData = data.toString().split('').reverse().join('');
-        fs.appendFile("./files_to_be_read/" + filesArray[2], reversedData, function (err) {
-          readFile(filesArray[fileCount]);
-        })
-      } else if (fileCount > 2 && fileCount < 5) {
+        fs.appendFile("./files_to_be_read/" + filesArray[fileCount], reversedData, function (err) {
+          if (err) {
+            throw err;
+          } else {
+            readFile(filesArray[fileCount]);
+          }
+        });
+      } else if (fileCount < filesArray.length) {
         readFile(filesArray[fileCount]);
       }
     }
