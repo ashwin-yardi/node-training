@@ -1,4 +1,4 @@
-exports.flatten = function (unflatObject) { 
+module.exports = function (unflatObject) { 
   var flattenedJson = {};
   function nextObject (object, prefixString) {
     if (typeof object == 'object') {
@@ -21,5 +21,3 @@ exports.flatten = function (unflatObject) {
   nextObject(unflatObject, "");
   return flattenedJson;
 }
-
-

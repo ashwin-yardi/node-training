@@ -1,4 +1,4 @@
-exports.unflatten = function (flatObject) {
+module.exports = function (flatObject) {
   var tempStr;
   var unflatObject = {};
   for (obj in flatObject) {  

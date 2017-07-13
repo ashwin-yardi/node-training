@@ -1,4 +1,4 @@
-exports.secondLargest = function (array) {
+module.exports = function (array) {
   var biggest = array[0];
   var secondBiggest = array[1];
   for (var i = 1; i < array.length; i++) {
