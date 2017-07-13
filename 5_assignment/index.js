@@ -8,8 +8,8 @@ function readFilePromise (fileName) {
 			if(err) {
 				reject(err);
 			} else {
-			 	printPattern(fileName);
-				resolve(data);
+			 	printPattern(data);
+				resolve();
 			}
 		});
 	});
@@ -22,14 +22,15 @@ var printPattern = function (data) {
 }
 
 function readFile(fileName) {
-	var toBeReturned =  function(){
-		fileCount++; 
-		if(fileCount <= 5) {
-			readFilePromise(fileName).then(readFile(filesArray[fileCount]));
-		}
+	fileCount++; 
+	if(fileCount <= 5) {
+		readFilePromise(fileName).then(function() {
+			readFile(filesArray[fileCount])
+		}, function(error) {
+			throw error;	
+		});
 	}
-	return toBeReturned;
 }
 
 console.log("=======================");
-readFile(filesArray[fileCount])();
+readFile(filesArray[fileCount]);
