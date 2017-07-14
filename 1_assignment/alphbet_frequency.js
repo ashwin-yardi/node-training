@@ -4,7 +4,7 @@ function calculateFrequencyUsingString (string) {
     var charAsciiValue = string.charCodeAt(i);
     if (charAsciiValue >= 97 && charAsciiValue <= 122) {
       var key = string[i];
-      if (!(key in jsonOutput)) {
+      if (!jsonOutput.hasOwnProperty(key)) {
         jsonOutput[key] = 1;
       } else {
         jsonOutput[key]++;

@@ -21,5 +21,3 @@ function flatten(unflatObject) {
   nextObject(unflatObject, "");
   return flattenedJson;
 }
-
-
