@@ -4,7 +4,8 @@
   "description": "NodeJS API Wrapper ",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon index.js"
   },
   "repository": {
     "type": "git",
@@ -14,6 +15,9 @@
   "license": "ISC",
   "devDependencies": {
     "body-parser": "^1.17.2",
-    "express": "^4.15.3"
+    "express": "^4.15.3",
+    "http": "0.0.0",
+    "nodemon": "^1.11.0",
+    "querystring": "^0.2.0"
   }
 }
