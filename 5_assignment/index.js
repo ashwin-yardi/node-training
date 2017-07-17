@@ -3,14 +3,13 @@ var filesArray = ["1.txt", "2.txt", "3.txt", "4.txt", "5.txt"];
 var fileCount = 0;
 
 function readFilePromise (fileName) {
-	return new Promise(function (resolve, reject) {
+	return new Promise((resolve, reject) => {
 		fs.readFile("./files_to_be_read/" + fileName, function(err, data) {
 			if(err) {
-				reject(err);
-			} else {
-			 	printPattern(data);
-				resolve();
-			}
+				 return reject(err);
+			} 
+		 	printPattern(data);
+			return resolve();
 		});
 	});
 }
