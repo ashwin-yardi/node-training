@@ -6,13 +6,13 @@ var readFile = function (fileName) {
 	fs.readFile("./files_to_be_read/" + fileName, function (err, data) {
 		if (err) {
 			throw err;
-		} else { 
-			fileCount++;
-			printPattern(data);
-			if (fileCount < filesArray.length) {
-				readFile(filesArray[fileCount]);
-			}
-		}	
+			return;	
+		}
+		fileCount++;
+		printPattern(data);
+		if (fileCount < filesArray.length) {
+			readFile(filesArray[fileCount]);
+		}		
 	});	
 }
 

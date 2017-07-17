@@ -6,30 +6,32 @@ var readFile = function (fileName) {
   fs.readFile("./files_to_be_read/" + fileName, function (err, data) {
     if (err) {
       throw err;
-    } else { 
-      fileCount++;
-      printPattern(data);
-      if (fileCount == 1) {
-        fs.appendFile("./files_to_be_read/" + filesArray[fileCount], data.toString(), function (err) {
-          if (err) {
-            throw err;
-          } else {
-            readFile(filesArray[fileCount]);
-          }
-        });
-      } else if (fileCount == 2) {
-        var reversedData = data.toString().split('').reverse().join('');
-        fs.appendFile("./files_to_be_read/" + filesArray[fileCount], reversedData, function (err) {
-          if (err) {
-            throw err;
-          } else {
-            readFile(filesArray[fileCount]);
-          }
-        });
-      } else if (fileCount < filesArray.length) {
+      return;
+    } 
+    fileCount++;
+    printPattern(data);
+    if (fileCount == 1) {
+      fs.appendFile("./files_to_be_read/" + filesArray[fileCount], data.toString(), (err) => {
+        if (err) {
+          throw err;
+          return;
+        }
         readFile(filesArray[fileCount]);
-      }
-    }
+      });
+    } 
+    if (fileCount == 2) {
+      let reversedData = data.toString().split('').reverse().join('');
+      fs.appendFile("./files_to_be_read/" + filesArray[fileCount], reversedData, (err) => {
+        if (err) {
+          throw err;
+          return;
+        }
+        readFile(filesArray[fileCount]);
+      });
+    } 
+    if (fileCount < filesArray.length && fileCount > 2) {
+      readFile(filesArray[fileCount]);
+    }       
   }); 
 }
 
