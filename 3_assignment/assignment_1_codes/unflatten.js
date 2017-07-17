@@ -9,18 +9,14 @@ module.exports = function (flatObject) {
   return unflatObject;
 }
 
-function formObject (referencedunflatObject, splittedString, value) {
-  var keyLength = splittedString.length - 1;
-  for (var i = 0; i < keyLength; ++i) {  
-    var key = splittedString[i];  
-    if (!(key in referencedunflatObject)) {
-      if (splittedString[i + 1].match(/\d+/g)) {
-        referencedunflatObject[key] = [];
-      } else {
-        referencedunflatObject[key] = {};
-      }
+function formObject (referencedUnflatObject, splittedString, value) {
+  let keyLength = splittedString.length - 1;
+  for (let i = 0; i < keyLength; ++i) {  
+    let key = splittedString[i];  
+    if (!referencedUnflatObject.hasOwnProperty(key)) {
+      referencedUnflatObject[key] = splittedString[i + 1].match(/\d+/g) && [] || {};
     }
-    referencedunflatObject = referencedunflatObject[key];
+    referencedUnflatObject = referencedUnflatObject[key];
   } 
-  referencedunflatObject[splittedString[keyLength]] = value;
+  referencedUnflatObject[splittedString[keyLength]] = value;
 }
