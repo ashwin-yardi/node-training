@@ -14,11 +14,7 @@ function formObject (referencedUnflatObject, splittedString, value) {
   for (var i = 0; i < keyLength; ++i) {  
     var key = splittedString[i];  
     if (!referencedUnflatObject.hasOwnProperty(key)) {
-      if (splittedString[i + 1].match(/\d+/g)) {
-        referencedUnflatObject[key] = [];
-      } else {
-        referencedUnflatObject[key] = {};
-      }
+      referencedUnflatObject[key] = splittedString[i + 1].match(/\d+/g) && [] || {};
     }
     referencedUnflatObject = referencedUnflatObject[key];
   } 
