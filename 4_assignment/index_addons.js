@@ -3,7 +3,7 @@ var filesArray = ["1.txt", "2.txt", "3.txt", "4.txt", "5.txt"];
 var fileCount = 0;
 
 var readFile = function (fileName) {
-  fs.readFile("./files_to_be_read/" + fileName, function (err, data) {
+  fs.readFile("./files_to_be_read/" + fileName, (err, data) => {
     if (err) {
       throw err;
       return;
