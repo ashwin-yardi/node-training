@@ -75,6 +75,10 @@ paths:
       produces:
         - application/json
       responses:
+        '200':
+          description: Successful Operation.
+          schema:
+            $ref: '#/definitions/Rootresponse'
         '404':
           description: Not found.
   /people:
@@ -88,6 +92,10 @@ paths:
       responses:
         '200':
           description: successful operation
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/People'
         '400':
           description: Invalid status value
         '404':
@@ -108,6 +116,10 @@ paths:
       responses:
         '200':
           description: successful operation
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/PeopleById'
         '400':
           description: Invalid status value
         '404':
@@ -192,7 +204,7 @@ paths:
           description: Invalid status value
         '404':
           description: Not found.
-  '/startships/{id}':
+  '/starships/{id}':
     get:
       parameters:
         - in: path
@@ -358,6 +370,9 @@ paths:
       responses:
         '200':
           description: successful operation
+          schema:
+            items:
+              $ref: '#/definitions/People'
         '400':
           description: Invalid status value
         '404':
@@ -377,6 +392,96 @@ paths:
           description: Invalid status value
         '404':
           description: Not found.
+definitions:
+  Rootresponse:
+    type: object
+    properties:
+      people:
+        type: string
+      planets:
+        type: string
+      films:
+        type: string
+      species:
+        type: string
+      vehicles:
+        type: string
+      starships:
+        type: string
+  People:
+    type: object
+    properties:
+      count:
+        type: string
+      next:
+        type: string
+        format: url
+      previous:
+        type: string
+        format: url
+      results:
+        type: array
+        items:
+          $ref: '#/definitions/PeopleById'
+    xml:
+      name: Order
+  PeopleById:
+    type: object
+    properties:
+      name:
+        type: string
+      height:
+        type: string
+      mass:
+        type: string
+      hair_color:
+        type: string
+      skin_color:
+        type: string
+      eye_color:
+        type: string
+      birth_year:
+        type: string
+      gender:
+        type: string
+      homeworld:
+        type: string
+      films:
+        type: array
+        items:
+          $ref: '#/definitions/Films'
+      species:
+        type: array
+        items:
+          $ref: '#/definitions/Species'
+      vehicles:
+        type: array
+        items:
+          $ref: '#/definitions/Vehicles'
+      starships:
+        type: array
+        items:
+          $ref: '#/definitions/Starships'
+      created:
+        type: string
+        format: date-time
+      edited:
+        type: string
+        format: date-time
+      url:
+        type: string
+  Films:
+    type: string
+    format: url
+  Species:
+    type: string
+    format: url
+  Vehicles:
+    type: string
+    format: url
+  Starships:
+    type: string
+    format: url
 externalDocs:
   description: Find out more about SWAPI
   url: 'http://swapi.co'
