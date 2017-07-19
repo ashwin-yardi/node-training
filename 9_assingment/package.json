@@ -1,0 +1,29 @@
+{
+  "name": "8_assignment",
+  "version": "1.0.0",
+  "description": "Nodejs and Mongodb integration",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ashwin-yardi/node-training/tree/assignment_8"
+  },
+  "keywords": [
+    "Nodejs",
+    "MonogoDB",
+    "MVC"
+  ],
+  "author": "Ashwin Yardi",
+  "license": "ISC",
+  "devDependencies": {
+    "body-parser": "^1.17.2",
+    "express": "^4.15.3",
+    "mongoose": "^4.11.3",
+    "nodemon": "^1.11.0",
+    "passport": "^0.3.2",
+    "passport-http-bearer": "^1.0.1"
+  }
+}
