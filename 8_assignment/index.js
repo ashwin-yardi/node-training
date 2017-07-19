@@ -5,7 +5,9 @@ var routerExpress = express.Router();
 var empRouter = require('./routes/employeeRoutes.js')(routerExpress);
 var projectRouter = require('./routes/projectRoutes.js')(routerExpress);
 var mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/demoProject');
+var configDB = require('./config/database.js');
+
+mongoose.connect(configDB.url);
 
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
