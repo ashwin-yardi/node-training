@@ -6,7 +6,7 @@ exports.createEmployees = function(request, response) {
 		objectToBeInserted.reportingTo = doc[0]._id;
 		var tempEmp = new Employee(objectToBeInserted);
 		tempEmp.save(function(err, tempEmp) {
-			if(err) {
+			if (err) {
 				return console.log("Error: \n" + err);
 			}
 			console.log("Document Saved");
@@ -17,7 +17,7 @@ exports.createEmployees = function(request, response) {
 
 exports.indexEmployeeById = function(request, response) {
 	Employee.findOne({ 'id': request.params.id }, function(err,doc) {
-		if(err) {
+		if (err) {
 			return console.log("Error:" + err);
 		}
 		response.json(doc);
@@ -26,7 +26,7 @@ exports.indexEmployeeById = function(request, response) {
 
 exports.indexEmployees = function(request, response) {
  	Employee.find((err, employeesDocs) => {
-		if(err) {
+		if (err) {
 			return console.log("Error: " + err);
 		}
 		console.log("Documents retrieved");
@@ -36,7 +36,7 @@ exports.indexEmployees = function(request, response) {
 
 exports.deleteEmployees = function(request, response) {
 	Employee.remove({'id': request.body.id}, function(err) {
-		err && console.log("Error: " + err);
+		if (err) { return console.log("Error: " + err); }
 		response.send("Employee entry successfully removed!");
 	});
 }
@@ -46,7 +46,7 @@ exports.updateEmployees = function(request, response) {
 	let id = request.body.id; 
 	delete bodyToBeUpdated.id;
 	Employee.findOne({ 'id': bodyToBeUpdated.reportingTo }, '_id', function(err, doc) {
-		if(!err) {
+		if (!err) {
 			var reportingToId = doc._id;
 			bodyToBeUpdated.reportingTo = reportingToId;
 			Employee.findOne({ 'id': id }, function(err, doc) {

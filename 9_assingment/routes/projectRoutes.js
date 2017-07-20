@@ -10,6 +10,6 @@ module.exports = function(passport) {
 		.post('/projects', projectController.createProject)
 		.delete('/projects', projectController.deleteProject)
 		.put('/projects', projectController.updateProject);
-
+		
 	return router;	
 }
