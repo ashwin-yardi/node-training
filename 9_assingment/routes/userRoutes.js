@@ -1,5 +1,6 @@
 var userController = require('../controllers/userController.js');
 var userRouter = require('express').Router();
+
 module.exports = function(passport) {
 	userRouter.use(passport.authenticate('adminBearer', { session: false }));
 	userRouter
