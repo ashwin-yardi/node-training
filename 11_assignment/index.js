@@ -1,7 +1,7 @@
-var alphabetFrequency = require('./assignment_1_codes/alphbet_frequency.js');
-var secondBiggest = require('./assignment_1_codes/second_largest.js');
-var flatten = require('./assignment_1_codes/flatten.js');
-var unflatten = require('./assignment_1_codes/unflatten.js');
+var alphabetFrequency = require('./app/alphbet_frequency.js');
+var secondBiggest = require('./app/second_largest.js');
+var flatten = require('./app/flatten.js');
+var unflatten = require('./app/unflatten.js');
 
 var alphabetFrequencyParam = "a#sh4win";
 var secondBiggestParam = [32, 12, 9, 10];
