@@ -1,0 +1,23 @@
+{
+  "name": "6_assignments",
+  "version": "1.0.0",
+  "description": "NodeJS API Wrapper ",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ashwin-yardi/node-training/tree/assignment_6"
+  },
+  "author": "Ashwin Yardi",
+  "license": "ISC",
+  "devDependencies": {
+    "body-parser": "^1.17.2",
+    "express": "^4.15.3",
+    "http": "0.0.0",
+    "nodemon": "^1.11.0",
+    "querystring": "^0.2.0"
+  }
+}
