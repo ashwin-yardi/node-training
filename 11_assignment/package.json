@@ -1,0 +1,15 @@
+{
+  "name": "3_assignment",
+  "version": "1.0.0",
+  "description": "Basic Javascript Assignment in Nodejs",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha ./tests/* --reporter nyan"
+  },
+  "author": "Ashwin Yardi",
+  "license": "ISC",
+  "devDependencies": {
+    "chai": "^4.1.0",
+    "mocha": "^3.4.2"
+  }
+}
