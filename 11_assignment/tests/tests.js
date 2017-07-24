@@ -39,7 +39,7 @@ describe("Test Suite for Assignment Functions.", function() {
 			expect(secondLargest).to.throw;
 		});
 		it("should throw an error when passed argument is not of type Array", function() {
-			expect(secondLargest(2)).to.be.undefined;
+			expect(secondLargest(2)).to.throw;
 		});
 		it("should throw an error when passed array contains non-numbers", function() {
 			let call = function() { secondLargest(["a", 2]) };
