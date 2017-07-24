@@ -1,0 +1,487 @@
+swagger: '2.0'
+info:
+  description: >-
+    Welcome to the swapi, the Star Wars API! This documentation should help you
+    familiarise yourself with the resources available and how to consume them
+    with HTTP requests. If you're after a native helper library then I suggest
+    you scroll down and check out what's available. Read through the getting
+    started section before you dive in. Most of your problems should be solved
+    just by reading through it.
+  version: 1.0.0
+  title: 'SWAPI : The Star Wars API'
+  termsOfService: blah blah
+host: swapi.co
+basePath: /api
+tags:
+  - name: Swapi
+    description: >-
+      The resource provides information on all available people, planets, films,
+      species, vehicles, starships.
+    externalDocs:
+      description: Find out more
+      url: 'http://swapi.co/documentation#root'
+  - name: People
+    description: The resource provides information on all available people in Star Wars.
+    externalDocs:
+      description: Find out more
+      url: 'http://swapi.co/documentation#people'
+  - name: Films
+    description: >-
+      The resource provides information on all released films in Star Wars
+      Series.
+    externalDocs:
+      description: Find out more
+      url: 'http://swapi.co/documentation#films'
+  - name: Starships
+    description: >-
+      The resource provides information on all Starships used in Star Wars
+      Series.
+    externalDocs:
+      description: Find out more
+      url: 'http://swapi.co/documentation#starships'
+  - name: Vehicles
+    description: >-
+      The resource provides information on all Vehicles used in Star Wars
+      Series.
+    externalDocs:
+      description: Find out more
+      url: 'http://swapi.co/documentation#vehicles'
+  - name: Planets
+    description: >-
+      The resource provides information on all Planets featured in Star Wars
+      Series.
+    externalDocs:
+      description: Find out more
+      url: 'http://swapi.co/documentation#planets'
+  - name: Species
+    description: >-
+      The resource provides information on all Species featured in Star Wars
+      Series.
+    externalDocs:
+      description: Find out more
+      url: 'http://swapi.co/documentation#species'
+schemes:
+  - http
+paths:
+  /:
+    get:
+      tags:
+        - Swapi
+      summary: >-
+        The Root resource provides information on all available resources within
+        the API.
+      description: ''
+      operationId: getResources
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: Successful Operation.
+          schema:
+            $ref: '#/definitions/Rootresponse'
+        '404':
+          description: Not found.
+  /people:
+    get:
+      tags:
+        - People
+      summary: Get all the people resources.
+      operationId: getAllPeople
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: successful operation
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/People'
+        '400':
+          description: Invalid status value
+        '404':
+          description: Not found.
+  '/people/{id}':
+    get:
+      parameters:
+        - in: path
+          name: id
+          required: true
+          type: integer
+      tags:
+        - People
+      summary: Get a specific people resource.
+      operationId: getPeopleByID
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: successful operation
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/PeopleById'
+        '400':
+          description: Invalid status value
+        '404':
+          description: Not found.
+  /people/schema:
+    get:
+      tags:
+        - People
+      summary: view the JSON schema for this resource
+      operationId: getPeopleSchema
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: successful operation
+        '400':
+          description: Invalid status value
+        '404':
+          description: Not found.
+  /films:
+    get:
+      tags:
+        - Films
+      summary: Get all the people resources.
+      operationId: getAllFilms
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: successful operation
+        '400':
+          description: Invalid status value
+        '404':
+          description: Not found.
+  '/films/{id}':
+    get:
+      parameters:
+        - in: path
+          name: id
+          required: true
+          type: integer
+      tags:
+        - Films
+      summary: Get a specific people resource.
+      operationId: getFilmByID
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: successful operation
+        '400':
+          description: Invalid status value
+        '404':
+          description: Not found.
+  /films/schema:
+    get:
+      tags:
+        - Films
+      summary: view the JSON schema for this resource
+      operationId: getFilmSchema
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: successful operation
+        '400':
+          description: Invalid status value
+        '404':
+          description: Not found.
+  /starships:
+    get:
+      tags:
+        - Starships
+      summary: Get all the people resources.
+      operationId: getAllStarships
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: successful operation
+        '400':
+          description: Invalid status value
+        '404':
+          description: Not found.
+  '/starships/{id}':
+    get:
+      parameters:
+        - in: path
+          name: id
+          required: true
+          type: integer
+      tags:
+        - Starships
+      summary: Get a specific people resource.
+      operationId: getStarshipByID
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: successful operation
+        '400':
+          description: Invalid status value
+        '404':
+          description: Not found.
+  /starships/schema:
+    get:
+      tags:
+        - Starships
+      summary: view the JSON schema for this resource
+      operationId: getStarshipSchema
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: successful operation
+        '400':
+          description: Invalid status value
+        '404':
+          description: Not found.
+  /vehicles:
+    get:
+      tags:
+        - Vehicles
+      summary: Get all the people resources.
+      operationId: getAllVehicles
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: successful operation
+        '400':
+          description: Invalid status value
+        '404':
+          description: Not found.
+  '/vehicles/{id}':
+    get:
+      parameters:
+        - in: path
+          name: id
+          required: true
+          type: integer
+      tags:
+        - Vehicles
+      summary: Get a specific people resource.
+      operationId: getVehiclesByID
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: successful operation
+        '400':
+          description: Invalid status value
+        '404':
+          description: Not found.
+  /vehicles/schema:
+    get:
+      tags:
+        - Vehicles
+      summary: view the JSON schema for this resource
+      operationId: getVehicleSchema
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: successful operation
+        '400':
+          description: Invalid status value
+        '404':
+          description: Not found.
+  /planets:
+    get:
+      tags:
+        - Planets
+      summary: Get all the people resources.
+      operationId: getAllPlanets
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: successful operation
+        '400':
+          description: Invalid status value
+        '404':
+          description: Not found.
+  '/planets/{id}':
+    get:
+      parameters:
+        - in: path
+          name: id
+          required: true
+          type: integer
+      tags:
+        - Planets
+      summary: Get a specific people resource.
+      operationId: getPlanetByID
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: successful operation
+        '400':
+          description: Invalid status value
+        '404':
+          description: Not found.
+  /planets/schema:
+    get:
+      tags:
+        - Planets
+      summary: view the JSON schema for this resource
+      operationId: getPlanetSchema
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: successful operation
+        '400':
+          description: Invalid status value
+        '404':
+          description: Not found.
+  /species:
+    get:
+      tags:
+        - Species
+      summary: Get all the people resources.
+      operationId: getAllSpecies
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: successful operation
+        '400':
+          description: Invalid status value
+        '404':
+          description: Not found.
+  '/species/{id}':
+    get:
+      parameters:
+        - in: path
+          name: id
+          required: true
+          type: integer
+      tags:
+        - Species
+      summary: Get a specific people resource.
+      operationId: getSpeciesByID
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: successful operation
+          schema:
+            items:
+              $ref: '#/definitions/People'
+        '400':
+          description: Invalid status value
+        '404':
+          description: Not found.
+  /species/schema:
+    get:
+      tags:
+        - Species
+      summary: view the JSON schema for this resource
+      operationId: getSpecieSchema
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: successful operation
+        '400':
+          description: Invalid status value
+        '404':
+          description: Not found.
+definitions:
+  Rootresponse:
+    type: object
+    properties:
+      people:
+        type: string
+      planets:
+        type: string
+      films:
+        type: string
+      species:
+        type: string
+      vehicles:
+        type: string
+      starships:
+        type: string
+  People:
+    type: object
+    properties:
+      count:
+        type: string
+      next:
+        type: string
+        format: url
+      previous:
+        type: string
+        format: url
+      results:
+        type: array
+        items:
+          $ref: '#/definitions/PeopleById'
+    xml:
+      name: Order
+  PeopleById:
+    type: object
+    properties:
+      name:
+        type: string
+      height:
+        type: string
+      mass:
+        type: string
+      hair_color:
+        type: string
+      skin_color:
+        type: string
+      eye_color:
+        type: string
+      birth_year:
+        type: string
+      gender:
+        type: string
+      homeworld:
+        type: string
+      films:
+        type: array
+        items:
+          $ref: '#/definitions/Films'
+      species:
+        type: array
+        items:
+          $ref: '#/definitions/Species'
+      vehicles:
+        type: array
+        items:
+          $ref: '#/definitions/Vehicles'
+      starships:
+        type: array
+        items:
+          $ref: '#/definitions/Starships'
+      created:
+        type: string
+        format: date-time
+      edited:
+        type: string
+        format: date-time
+      url:
+        type: string
+  Films:
+    type: string
+    format: url
+  Species:
+    type: string
+    format: url
+  Vehicles:
+    type: string
+    format: url
+  Starships:
+    type: string
+    format: url
+externalDocs:
+  description: Find out more about SWAPI
+  url: 'http://swapi.co'
